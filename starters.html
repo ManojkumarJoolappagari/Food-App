@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starters</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      background-color: rgb(223, 207, 231);
+      padding: 15px;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .cart-icon a {
+      text-decoration: none;
+      font-size: 24px;
+      background-color: bisque;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: black;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .section {
+      padding: 30px 20px;
+    }
+
+    .non-veg {
+      background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20200829/pngtree-colourful-plum-background-for-food-image_397434.jpg");
+    }
+
+    .veg {
+      background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-with-hand-drawn-friuts-berries-pink-background_589573-96.jpg");
+    }
+
+    p {
+      font-style: italic;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .item-card {
+      width: 220px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .img-container:hover .overlay {
+      opacity: 1;
+    }
+
+    .item-card p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .item-card b {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .item-card button {
+      padding: 10px 20px;
+      background-color: bisque;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .item-card button:hover {
+      background-color: rgb(223, 207, 231);
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-icon">
+    <a href="cart.html">🛒</a>
+  </div>
+
+  <h1>Starters</h1>
+
+  <!-- Paste your original content for Non-Veg and Veg starters here as-is -->
+  <!-- For brevity, only one item shown per section below -->
+
+  <div class="section non-veg">
+    <h3><em><ins>Non-Veg Starters</ins></em> 🍗</h3>
+    <div class="menu-container">
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT319B2N9ayQJpiLvuZMZ_2TPZoei5_Wxtbjw&s" alt="Prawn Koliwada">
+          <div class="overlay">Prawn Koliwada</div>
+        </div>
+        <p>Crispy, batter-fried prawns marinated in aromatic spices.</p>
+        <b>Rs: 270</b>
+        <button class="order-btn" data-item="Prawn Koliwada">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNIQDIbcH7ctVAEigOdxbioBa8gT7TauPKbw&s" alt="Chili Chicken">
+          <div class="overlay">Chili Chicken</div>
+        </div>
+        <p>Boneless chicken stir-fried in a tangy, spicy sauce with bell peppers.</p>
+        <b>Rs: 230</b>
+        <button class="order-btn" data-item="Chili Chicken">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://derafarms.com/cdn/shop/files/deraproducts-2024-07-05T124048.969.png?v=1720163539" alt="Tandoori Chicken">
+          <div class="overlay">Tandoori Chicken</div>
+        </div>
+        <p>Chicken marinated in yogurt and spices, cooked in a smoky tandoor.</p>
+        <b>Rs: 250</b>
+        <button class="order-btn" data-item="Tandoori Chicken">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOUTDo4wvP_ywhppXVlKUYSW0-THAyNgJAwQ&s" alt="Koliwada Fish">
+          <div class="overlay">Koliwada Fish</div>
+        </div>
+        <p>Spiced fish fillets deep-fried for a crispy, flavorful bite.</p>
+        <b>Rs: 260</b>
+        <button class="order-btn" data-item="Koliwada Fish">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDgx89YoCWy1JVYciZW7uukyRxo2XgY4KdVQ&s" alt="Murg Malai Tikka">
+          <div class="overlay">Murg Malai Tikka</div>
+        </div>
+        <p>Creamy, tender chicken tikka marinated in yogurt, cheese, and spices.</p>
+        <b>Rs: 290</b>
+        <button class="order-btn" data-item="Murg Malai Tikka">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://sinfullyspicy.com/wp-content/uploads/2023/04/1200-by-1200-images-3-2.jpg" alt="Mutton Shami Kebab">
+          <div class="overlay">Mutton Shami Kebab</div>
+        </div>
+        <p>Ground mutton and lentils formed into patties and shallow-fried.</p>
+        <b>Rs: 280</b>
+        <button class="order-btn" data-item="Mutton Shami Kebab">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section veg">
+    <h3><em><ins>Veg Starters</ins></em> 🥦</h3>
+    <div class="menu-container">
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://www.cookwithmanali.com/wp-content/uploads/2015/07/Restaurant-Style-Recipe-Paneer-Tikka-500x500.jpg" alt="Paneer Tikka">
+          <div class="overlay">Paneer Tikka</div>
+        </div>
+        <p>Chunks of paneer marinated in spices and grilled to smoky perfection.</p>
+        <b>Rs: 220</b>
+        <button class="order-btn" data-item="Paneer Tikka">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo7z5s-_QfH8blkaFZ7SZfzS3f6ZvnpagS0A&s" alt="Hara Bhara Kabab">
+          <div class="overlay">Hara Bhara Kabab</div>
+        </div>
+        <p>Healthy kababs made from spinach, peas, and potatoes.</p>
+        <b>Rs: 180</b>
+        <button class="order-btn" data-item="Hara Bhara Kabab">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://cdn.zeptonow.com/production///tr:w-600,ar-100-100,pr-true,f-auto,q-80/web/recipes/gobi-manchurian.png" alt="Veg Manchurian">
+          <div class="overlay">Veg Manchurian</div>
+        </div>
+        <p>Fried vegetable balls tossed in a tangy Indo-Chinese sauce.</p>
+        <b>Rs: 200</b>
+        <button class="order-btn" data-item="Veg Manchurian">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjHVDaQV1v-ZrhZcuEoEfjtxzykiKQcSirvQ&s" alt="Stuffed Mushrooms">
+          <div class="overlay">Stuffed Mushrooms</div>
+        </div>
+        <p>Mushroom caps filled with spiced cheese and baked to perfection.</p>
+        <b>Rs: 240</b>
+        <button class="order-btn" data-item="Stuffed Mushrooms">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://www.kuchpakrahahai.in/wp-content/uploads/2021/09/Crispy-Corn-Recipe.jpg" alt="Crispy Corn">
+          <div class="overlay">Crispy Corn</div>
+        </div>
+        <p>Sweet corn kernels fried until crispy and tossed with spices.</p>
+        <b>Rs: 190</b>
+        <button class="order-btn" data-item="Crispy Corn">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://easyindiancookbook.com/wp-content/uploads/2023/05/chilli-paneer-10.jpg" alt="Chili Paneer">
+          <div class="overlay">Chili Paneer</div>
+        </div>
+        <p>Paneer cubes stir-fried in a spicy and tangy chili sauce.</p>
+        <b>Rs: 230</b>
+        <button class="order-btn" data-item="Chili Paneer">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb_mhvxaDu7x_E0c0AqSM07zCuQ2RXTLlE4w&s" alt="Spring Rolls">
+          <div class="overlay">Spring Rolls</div>
+        </div>
+        <p>Golden-fried rolls stuffed with spiced vegetable filling.</p>
+        <b>Rs: 210</b>
+        <button class="order-btn" data-item="Spring Rolls">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://enjoyinfourseason.com/wp-content/uploads/2022/04/Fourseason-TANDOOR-SE-DAHI-KABAB.jpg" alt="Dahi Ke Kabab">
+          <div class="overlay">Dahi Ke Kabab</div>
+        </div>
+        <p>Delicate kababs made with hung curd and mild spices.</p>
+        <b>Rs: 200</b>
+        <button class="order-btn" data-item="Dahi Ke Kabab">Order Now</button>
+      </div>
+
+      <div class="item-card">
+        <div class="img-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJK4WDFUpjNW6R5HGPdk-V6NTaMFzFqsJnKw&s" alt="Paneer 65">
+          <div class="overlay">Paneer 65</div>
+        </div>
+        <p>Spicy and crispy South Indian-style paneer starter.</p>
+        <b>Rs: 220</b>
+        <button class="order-btn" data-item="Paneer 65">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <button><a href="Main Page.html">Back To Menu</a></button>
+  </div>
+
+  <script>
+    document.querySelectorAll(".order-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const name = this.getAttribute("data-item");
+        const card = this.closest(".item-card");
+        const priceText = card.querySelector("b").textContent.replace("Rs:", "").trim();
+        const image = card.querySelector("img").src;
+
+        const item = {
+          name: name,
+          price: parseInt(priceText),
+          image: image,
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " added to cart ✅");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Non-Veg Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .nonvegbackground {
+      background-image: url("https://img.freepik.com/premium-vector/fried-chicken-doodle-red-seamless-pattern-background-kitchen-cooking-restaurant_631632-1092.jpg");
+    }
+
+    p {
+      font-style: italic;
+    }
+
+    h1 {
+      color: red;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .cart-icon a {
+      text-decoration: none;
+      font-size: 24px;
+      background-color: bisque;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: black;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .item-card {
+      width: 220px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .img-container:hover .overlay {
+      opacity: 1;
+    }
+
+    .item-card p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .item-card b {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .item-card button {
+      padding: 10px 20px;
+      background-color: bisque;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .item-card button:hover {
+      background-color: rgb(223, 207, 231);
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body class="nonvegbackground">
+  <div class="cart-icon">
+    <a href="cart.html">🛒</a>
+  </div>
+
+  <h1>Non-Veg 🍗</h1>
+
+  <div class="menu-container">
+    <!-- Item Cards -->
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://biriyanifactory.com/wp-content/uploads/2022/05/nattu-kozhi-biryani.jpg" alt="Natu Kodi Biryani" />
+        <div class="overlay">Natu Kodi Biryani</div>
+      </div>
+      <p>Spicy, slow-cooked country chicken with aromatic rice.</p>
+      <b>Rs: 499</b>
+      <button class="order-btn" data-item="Natu Kodi Biryani">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Of5B1XVgVXP7TajFX6w0Hf50V2L4cMmQdA&s" alt="Chicken Dum Biryani" />
+        <div class="overlay">Chicken Dum Biryani</div>
+      </div>
+      <p>Hyderabadi-style biryani with tender chicken pieces and rich spices.</p>
+      <b>Rs: 350</b>
+      <button class="order-btn" data-item="Chicken Dum Biryani">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://shop.cookdtv.com/cdn/shop/files/thumbnail23-donnne_final_1080x.jpg?v=1742060713" alt="Donne Biryani" />
+        <div class="overlay">Donne Biryani</div>
+      </div>
+      <p>Karnataka special green masala biryani served in eco-friendly leaves.</p>
+      <b>Rs: 399</b>
+      <button class="order-btn" data-item="Donne Biryani">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://d1w7312wesee68.cloudfront.net/xss1riV1nU2xukhuwPqjHww-LGLvsbbSBtU2nI-iOp0/resize:fit:720:720/plain/s3://toasttab/restaurants/restaurant-131516000000000000/menu/items/0/item-5740048059667660_1739574181.jpg" alt="Gongura Mutton Biryani" />
+        <div class="overlay">Gongura Mutton Biryani</div>
+      </div>
+      <p>Mutton biryani made with tangy Andhra-style gongura leaves.</p>
+      <b>Rs: 459</b>
+      <button class="order-btn" data-item="Gongura Mutton Biryani">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzD8trxJgrVBGyubzHWE2ZQ-jbt5H1cTBGuQ&s" alt="Fish Pulav" />
+        <div class="overlay">Fish Pulav</div>
+      </div>
+      <p>Flavored rice cooked with tender, marinated fish pieces.</p>
+      <b>Rs: 299</b>
+      <button class="order-btn" data-item="Fish Pulav">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ720stVHKxm8Q7UmgFBJJ0EDFiuI8KruWRJg&s" alt="Keema Rice" />
+        <div class="overlay">Keema Rice</div>
+      </div>
+      <p>Spiced minced meat mixed with basmati rice and herbs.</p>
+      <b>Rs: 399</b>
+      <button class="order-btn" data-item="Keema Rice">Order Now</button>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <button><a href="Main Page.html">Back To Menu</a></button>
+  </div>
+
+  <script>
+    document.querySelectorAll(".order-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const name = this.getAttribute("data-item");
+        const card = this.closest(".item-card");
+        const priceText = card.querySelector("b").textContent.replace("Rs:", "").trim();
+        const image = card.querySelector("img").src;
+
+        const item = {
+          name: name,
+          price: parseInt(priceText),
+          image: image,
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " added to cart ✅");
+      });
+    });
+  </script>
+</body>
+</html>

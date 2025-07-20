@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Namora Sobagu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script>
+        window.onload = function () {
+            alert("Welcome to Namora Sobagu – Taste the tradition!");
+        };
+        const headings = document.querySelectorAll("h2");
+        headings.forEach(h => {
+            h.addEventListener("mouseover", () => {
+                h.style.color = "coral";
+            });
+            h.addEventListener("mouseout", () => {
+                h.style.color = "black";
+            });
+        });
+        function confirmBack() {
+            return confirm("Are you sure you want to return to the main menu?");
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .background {
+            background-image: url("namorasabagubg.png");
+            background-size: cover;
+        }
+        .nav-button {
+            display: inline-block;
+            height: 50px;
+            width: 120px;
+            background-color: bisque;
+            text-decoration: none;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 10px;
+            color: black;
+            font-weight: bold;
+        }
+        .nav-button:hover {
+            background-color: rgb(223, 207, 231);
+            border-radius: 20px;
+        }
+        img:hover {
+            border-radius: 10px;
+            transform: scale(1.02);
+            transition: 0.3s ease-in-out;
+        }
+        .flex {
+            display: grid;
+            padding: 20px;
+            margin: 0 40px;
+            border-radius: 10px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body class="background">
+    <div class="flex">
+        <h1 style="text-align: center; color: darksalmon;"><b>Namora Sobagu - <sub>The Taste Of Our Mother Land</sub></b></h1>
+        <div>
+            <h2>Veg Delights</h2>
+            <p>From hearty home-cooked curries to lightly spiced stir-fries, our veg menu celebrates the richness of fresh, seasonal produce.</p>
+        </div>
+        <div>
+            <h2>Non-Veg Specialties</h2>
+            <p>Indulge in bold, flavorful dishes that reflect the culinary strength of our region.</p>
+        </div>
+        <div>
+            <h2>Sweet Treats (Desserts)</h2>
+            <p>Our desserts are a tribute to festive moments and joyful memories.</p>
+        </div>
+        <div>
+            <h2>Fresh Juices</h2>
+            <p>Quench your thirst with refreshing juices made from fresh, local fruits.</p>
+        </div>
+    </div>
+
+    <h1 style="text-align: center; color: coral;">GALLERY</h1>
+    <div style="text-align: center;">
+        <img src="https://images.adsttc.com/media/images/5b73/f279/f197/ccf5/2700/026d/large_jpg/a-23.jpg?1534325361" width="500" height="250" alt="Dining area 1">
+        <img src="https://images.adsttc.com/media/images/5b73/f2d8/f197/cc47/f600/005e/medium_jpg/a-49.jpg?1534325456" width="500" height="250" alt="Dining area 2">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/6d/b8/75/the-restaurant.jpg" width="500" height="250" alt="Restaurant interior">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/fe/4b/fc/caption.jpg?w=900&h=500&s=1" width="500" height="250" alt="Modern seating">
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="Main Page.html" class="nav-button" onclick="return confirmBack()">Back To Menu</a>
+    </div>
+</body>
+</html>

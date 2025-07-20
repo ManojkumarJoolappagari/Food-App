@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veg Section</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .vegbackground {
+      background-image: url("vegsectionbg.jpg");
+    }
+    p {
+      font-style: italic;
+    }
+
+    h1 {
+      color: #228B22;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .cart-icon a {
+      text-decoration: none;
+      font-size: 24px;
+      background-color: bisque;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: black;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .item-card {
+      width: 220px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px 0;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-container:hover .overlay {
+  opacity: 1;
+}
+
+
+    .item-card p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .item-card b {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .item-card button {
+      padding: 10px 20px;
+      background-color: bisque;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .item-card button:hover {
+      background-color: rgb(223, 207, 231);
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body class="vegbackground">
+  <div class="cart-icon">
+    <a href="cart.html">🛒</a>
+  </div>
+
+  <h1>Pure Veg 🍅</h1>
+
+  <div class="menu-container">
+    <div class="item-card">
+      <div class="img-container">
+        <img src="paneer.jpeg" alt="Paneer Butter Masala" />
+        <div class="overlay">Paneer Butter Masala</div>
+      </div>
+      <p>Soft paneer cubes in a creamy tomato-based gravy.</p>
+      <b>Rs:200</b>
+      <button class="order-btn" data-item="Paneer Butter Masala">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="Veg Biryani" />
+        <div class="overlay">Veg Biryani</div>
+      </div>
+      <p>Aromatic rice cooked with vegetables and spices.</p>
+      <b>Rs:250</b>
+      <button class="order-btn" data-item="Veg Biryani">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://static.toiimg.com/thumb/82571270.cms?imgsize=443554&width=800&height=800" alt="Masala Dosa" />
+        <div class="overlay">Masala Dosa</div>
+      </div>
+      <p>Crispy crepe filled with spicy potato, served with chutney.</p>
+      <b>Rs:100</b>
+      <button class="order-btn" data-item="Masala Dosa">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://thumbs.dreamstime.com/b/delicious-idli-served-dipping-sauce-spices-banana-leaf-platter-soft-fluffy-placed-vibrant-green-accompanied-370204455.jpg" alt="Idli" />
+        <div class="overlay">Idli</div>
+      </div>
+      <p>Soft rice cakes served with chutney & sambar.</p>
+      <b>Rs:50</b>
+      <button class="order-btn" data-item="Idli">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAs4uZItsi0MFF484itx_tTWYDUqiOatzeIg&s" alt="Curd Rice" />
+        <div class="overlay">Curd Rice</div>
+      </div>
+      <p>Curd rice with tempered spices and pickle.</p>
+      <b>Rs:50</b>
+      <button class="order-btn" data-item="Curd Rice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://dukaan.b-cdn.net/700x700/webp/182962/19bc55b1-2347-41b7-bb46-ec11bc4f3949.png" alt="Gobi Rice" />
+        <div class="overlay">Gobi Rice</div>
+      </div>
+      <p>Cauliflower rice with Indian spices and herbs.</p>
+      <b>Rs:250</b>
+      <button class="order-btn" data-item="Gobi Rice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxzfSs-NeX-T2NfYqjwqHajVopEViMEz3GUA&s" alt="Paneer Rice" />
+        <div class="overlay">Paneer Rice</div>
+      </div>
+      <p>Rice tossed with paneer cubes and mild masalas.</p>
+      <b>Rs:300</b>
+      <button class="order-btn" data-item="Paneer Rice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxp1sDzpLhfdD6oy5HPrTDa1nS-ZSOcrpycA&s" alt="Mushroom Fried Rice" />
+        <div class="overlay">Mushroom Fried Rice</div>
+      </div>
+      <p>Fried rice with mushrooms, garlic, and soy sauce.</p>
+      <b>Rs:300</b>
+      <button class="order-btn" data-item="Mushroom Fried Rice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://www.indianveggiedelight.com/wp-content/uploads/2021/11/ven-pongal-featured.jpg" alt="Pongal" />
+        <div class="overlay">Pongal</div>
+      </div>
+      <p>Rice porridge made with dal, ghee & spices.</p>
+      <b>Rs:200</b>
+      <button class="order-btn" data-item="Pongal">Order Now</button>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <button><a href="Main Page.html">Back To Menu</a></button>
+  </div>
+
+  <script>
+    // Add to cart and store in localStorage
+    document.querySelectorAll(".order-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const name = this.getAttribute("data-item");
+        const card = this.closest(".item-card");
+        const priceText = card.querySelector("b").textContent.replace("Rs:", "").trim();
+        const image = card.querySelector("img").src;
+
+        const item = {
+          name: name,
+          price: parseInt(priceText),
+          image: image,
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " added to cart ✅");
+      });
+    });
+
+    // Set title attribute (tooltip) on hover dynamically
+    document.querySelectorAll(".item-card").forEach(card => {
+      const overlay = card.querySelector(".overlay");
+      const container = card.querySelector(".img-container");
+      container.setAttribute("title", overlay.textContent.trim());
+    });
+  </script>
+</body>
+</html>

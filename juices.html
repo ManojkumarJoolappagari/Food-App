@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juices</title>
+  <style>
+    body {
+      background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-cold-cocktail-with-lemon-mint-leaves-outline-drawing_156229-64.jpg");
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .cart-icon a {
+      text-decoration: none;
+      font-size: 24px;
+      background-color: bisque;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: black;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      font-style: italic;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .item-card {
+      width: 280px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .img-container:hover .overlay {
+      opacity: 1;
+    }
+
+    .item-card p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .item-card b {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .item-card button {
+      padding: 10px 20px;
+      background-color: bisque;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .item-card button:hover {
+      background-color: rgb(223, 207, 231);
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-icon">
+    <a href="cart.html">🛒</a>
+  </div>
+
+  <h1><ins>Juices</ins> 🥤</h1>
+
+  <div class="menu-container">
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgoLZuyhn6uCyzUXkXdWJNcKbRMeAoo7YwDA&s" alt="Orange Juice">
+        <div class="overlay">Orange Juice</div>
+      </div>
+      <p>Freshly squeezed orange juice, perfect for a refreshing start to the day.</p>
+      <b>Rs: 150</b>
+      <button class="order-btn" data-item="Orange Juice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwCVp3NLLj10gqJLmXuc_2i6pVtqMTjIp8ig&s" alt="Apple Juice">
+        <div class="overlay">Apple Juice</div>
+      </div>
+      <p>Freshly pressed apples, offering a crisp and sweet flavor also Health.</p>
+      <b>Rs: 180</b>
+      <button class="order-btn" data-item="Apple Juice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqKg7fzJgdhexYJmQWZ9bWP1JtL1LlKXejdg&s" alt="Mango Juice">
+        <div class="overlay">Mango Juice</div>
+      </div>
+      <p>Delicious and sweet mango juice, made with fresh mangoes bought from Villages.</p>
+      <b>Rs: 200</b>
+      <button class="order-btn" data-item="Mango Juice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3JfIuuJKRt2vZ7QF9aainnT1nLbSZxrO1xg&s" alt="Watermelon Juice">
+        <div class="overlay">Watermelon Juice</div>
+      </div>
+      <p>A cool and hydrating watermelon juice, perfect for hot day and For a refreshing day.</p>
+      <b>Rs: 170</b>
+      <button class="order-btn" data-item="Watermelon Juice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCNW468WhQnaT21jPucBkKpyEuv2qXgyaDNA&s" alt="Pineapple Juice">
+        <div class="overlay">Pineapple Juice</div>
+      </div>
+      <p>Sweet and tangy pineapple juice that will make your taste buds dance.</p>
+      <b>Rs: 190</b>
+      <button class="order-btn" data-item="Pineapple Juice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqpQrcyEeVKiiuHdpq20j4kGn4AU5dn71Yn4jJTkKEKK888T2T1EcPiBBqA8yjEVXf-ho&usqp=CAU" alt="Mixed Fruit Juice">
+        <div class="overlay">Mixed Fruit Juice</div>
+      </div>
+      <p>A refreshing blend of various fruits including apple, orange, and pineapple.</p>
+      <b>Rs: 220</b>
+      <button class="order-btn" data-item="Mixed Fruit Juice">Order Now</button>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <button><a href="Main Page.html">Back To Menu</a></button>
+  </div>
+
+  <script>
+    document.querySelectorAll(".order-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const name = this.getAttribute("data-item");
+        const card = this.closest(".item-card");
+        const priceText = card.querySelector("b").textContent.replace("Rs:", "").trim();
+        const image = card.querySelector("img").src;
+
+        const item = {
+          name: name,
+          price: parseInt(priceText),
+          image: image,
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " added to cart ✅");
+      });
+    });
+  </script>
+</body>
+</html>

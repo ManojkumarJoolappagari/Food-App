@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Main Page - Namora Sabagu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fef6f0;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    h1 a {
+      text-decoration: none;
+      color: #e67300;
+    }
+
+    .banner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .banner img {
+      border-radius:20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner img:hover {
+      transform: scale(1.10);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner-text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff8ee;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+      font-size: 1.5;
+      backdrop-filter: blur(2px);
+    }
+
+    .cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.cart-icon a {
+  text-decoration: none;
+  font-size: 25px;
+  background-color: bisque;
+  padding: 10px 15px;
+  border-radius: 50%;
+  color: black;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .menu-card {
+      width: 280px;
+      background-color: #fff8ee;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(197, 44, 44, 0.1);
+    }
+
+    .image-hover {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      overflow: hidden;
+      transform: scale(1.02)
+    }
+
+    .image-hover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 1.5s ease;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .image-hover:hover img {
+      opacity: 0;
+    }
+
+    .image-hover:hover .overlay {
+      opacity: 1;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: bisque;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgb(223, 207, 231);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      background-color: #ffe6cc;
+      border-top: 2px solid #f2c88f;
+    }
+
+    .footer a {
+      color: #cc5200;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .footer p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+      .menu-card {
+        width: 90%;
+      }
+    }
+    @keyframes colorShift {
+      0%   { color: #e3eb0f; }
+      25%  { color: #ffee00; }
+      50%  { color: #f84509; }
+      75%  { color: #ed7307; }
+      100% { color: #e5e112; }
+    }
+
+    h1 a {
+      text-decoration: none;
+      animation: colorShift 5s infinite ease-in-out;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      const menuButtons = {
+        vegBtn: {
+          msg: "You're about to explore our wholesome vegetarian dishes 🥕🍃",
+          url: "veg section.html"
+        },
+        nonVegBtn: {
+          msg: "Get ready for some sizzling non-veg specialties 🍗🔥",
+          url: "non-veg.html"
+        },
+        starterBtn: {
+          msg: "Starters coming right up! Let’s fire up your appetite 🍢",
+          url: "starters.html"
+        },
+        desertBtn: {
+          msg: "Treat yourself! Our sweetest desserts await 🍰",
+          url: "Deserts.html"
+        },
+        juiceBtn: {
+          msg: "Time to refresh! Explore our fresh and fruity juices 🍹",
+          url: "juices.html"
+        },
+      };
+
+      for (const id in menuButtons) {
+        document.getElementById(id).onclick = function () {
+          alert(menuButtons[id].msg);
+          window.open(menuButtons[id].url, "_blank");
+        };
+      }
+    };
+  </script>
+</head>
+<body>
+  <div class="cart-icon">
+    <a href="cart.html"><b>🛒</b></a>
+  </div>
+
+  <div class="banner">
+    <h1><a href="About Namora Sobagu.html" target="_blank">NAMORA SOBAGU</a></h1>
+    <img src="https://images.adsttc.com/media/images/657b/35a1/a700/7801/7c77/e431/newsletter/overwater-bamboo-restaurant-atelier-nomadic_17.jpg?1702573519" alt="Restaurant Banner">
+    <div class="banner-text">Namora Sobagu - Serving time-honored recipes made with tradition and love.</div>
+  </div>
+
+  <h1>Menu Section</h1>
+
+  <div class="menu-container">
+    <div class="menu-card">
+      <h2 style="color: green;">Veg</h2>
+      <div class="image-hover">
+        <img src="veg.jpeg" alt="Veg Dish">
+        <div class="overlay">Veg Menu</div>
+      </div>
+      <button id="vegBtn">View Menu</button>
+    </div>
+
+    <div class="menu-card">
+      <h2 style="color: red;">Non-Veg</h2>
+      <div class="image-hover">
+        <img src="nonveg.jpg" alt="Non-Veg Dish">
+        <div class="overlay">Non-Veg Menu</div>
+      </div>
+      <button id="nonVegBtn">View Menu</button>
+    </div>
+
+    <div class="menu-card">
+      <h2 style="color: purple;">Starter</h2>
+      <div class="image-hover">
+        <img src="https://media.istockphoto.com/id/1220098599/photo/japanese-food-background.jpg?s=612x612&w=0&k=20&c=xjnW1_t6Dr2RLkhiy7k7NICS9vlVkjrGZ9kOGQHHJcs=" alt="Starter Dish">
+        <div class="overlay">Veg & Non-Veg Starters Menu</div>
+      </div>
+      <button id="starterBtn">View Menu</button>
+    </div>
+
+    <div class="menu-card">
+      <h2 style="color: goldenrod;">Desserts</h2>
+      <div class="image-hover">
+        <img src="desserts.jpg" alt="Dessert Dish">
+        <div class="overlay">Desserts Menu</div>
+      </div>
+      <button id="desertBtn">View Menu</button>
+    </div>
+
+    <div class="menu-card">
+      <h2 style="color: orange;">Juices</h2>
+      <div class="image-hover">
+        <img src="juices.jpg" alt="Juice Glasses">
+        <div class="overlay">Juices Menu</div>
+      </div>
+      <button id="juiceBtn">View Menu</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h3><ins>Follow Us On Social Media</ins></h3>
+    <a href="https://instagram.com" target="_blank">Instagram</a> |
+    <a href="https://youtube.com" target="_blank">YouTube</a>
+
+    <p><mark>For any queries, contact:</mark></p>
+    <p>Email: <a href="mailto:NamoraSabagu@gmail.com">NamoraSabagu@gmail.com</a></p>
+    <p>Phone: X X X X X X X X X</p>
+  </div>
+</body>
+</html>

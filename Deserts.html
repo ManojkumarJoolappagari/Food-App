@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deserts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-image: url("https://img.freepik.com/premium-vector/bakery-products-doodle-beige-seamless-pattern-vector-background-included-line-icons_787654-118.jpg");
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .cart-icon a {
+      text-decoration: none;
+      font-size: 24px;
+      background-color: bisque;
+      padding: 10px 15px;
+      border-radius: 50%;
+      color: black;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      font-style: italic;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .item-card {
+      width: 280px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .img-container:hover .overlay {
+      opacity: 1;
+    }
+
+    .item-card p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .item-card b {
+      display: block;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .item-card button {
+      padding: 10px 20px;
+      background-color: bisque;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .item-card button:hover {
+      background-color: rgb(223, 207, 231);
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-icon">
+    <a href="cart.html">🛒</a>
+  </div>
+
+  <h1><ins>Cakes & Pastries</ins> 🍰</h1>
+
+  <div class="menu-container">
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw41-uke-RL1bA_2BNDbxUDBOqOVYG76WAtg&s" alt="Cheesecake">
+        <div class="overlay">Cheesecake</div>
+      </div>
+      <p>A buttery graham cracker crust and rich creamy filling.</p>
+      <b>Rs: 280</b>
+      <button class="order-btn" data-item="Cheesecake">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRumhsrdFvH5FV0NVbR2j2YBBd4UADuofElKA&s" alt="Eclair">
+        <div class="overlay">Eclair</div>
+      </div>
+      <p>French pastry filled with smooth vanilla custard and topped with chocolate glaze.</p>
+      <b>Rs: 220</b>
+      <button class="order-btn" data-item="Eclair">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIwnxZW7qmBSzHh3HJ_5--WDZ2-4ppoHKzUA&s" alt="Mille-Feuille">
+        <div class="overlay">Mille-Feuille</div>
+      </div>
+      <p>Layers of puff pastry filled with whipped cream and dusted with powdered sugar.</p>
+      <b>Rs: 290</b>
+      <button class="order-btn" data-item="Mille-Feuille">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRltVFws5sukL6vUEvlLGb9EKbzVGD23cDgoA&s" alt="Chocolate Fudge Cake">
+        <div class="overlay">Chocolate Fudge Cake</div>
+      </div>
+      <p>Rich, moist chocolate cake with a fudge-like consistency.</p>
+      <b>Rs: 300</b>
+      <button class="order-btn" data-item="Chocolate Fudge Cake">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSnzoZAruacMmDtW0LwvcUVbyXHUdgTuUqlA&s" alt="Red Velvet Slice">
+        <div class="overlay">Red Velvet Slice</div>
+      </div>
+      <p>Soft and fluffy red velvet cake with cream cheese frosting.</p>
+      <b>Rs: 250</b>
+      <button class="order-btn" data-item="Red Velvet Slice">Order Now</button>
+    </div>
+
+    <div class="item-card">
+      <div class="img-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfsrp3bvBrXqRDjlEyNrDfHIMx531sXM8Dxw&s" alt="Tiramisu">
+        <div class="overlay">Tiramisu</div>
+      </div>
+      <p>Italian dessert made with layers of coffee-soaked biscuits and mascarpone cream.</p>
+      <b>Rs: 350</b>
+      <button class="order-btn" data-item="Tiramisu">Order Now</button>
+    </div>
+  </div>
+
+  <div class="back-button">
+    <button><a href="Main Page.html">Back To Menu</a></button>
+  </div>
+
+  <script>
+    document.querySelectorAll(".order-btn").forEach(button => {
+      button.addEventListener("click", function () {
+        const name = this.getAttribute("data-item");
+        const card = this.closest(".item-card");
+        const priceText = card.querySelector("b").textContent.replace("Rs:", "").trim();
+        const image = card.querySelector("img").src;
+
+        const item = {
+          name: name,
+          price: parseInt(priceText),
+          image: image,
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingItem = cart.find(i => i.name === item.name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " added to cart ✅");
+      });
+    });
+  </script>
+</body>
+</html>
