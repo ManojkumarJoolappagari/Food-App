@@ -233,7 +233,6 @@
   </div>
 
   <script>
-    // Add to cart and store in localStorage
     document.querySelectorAll(".order-btn").forEach(button => {
       button.addEventListener("click", function () {
         const name = this.getAttribute("data-item");
@@ -262,7 +261,6 @@
       });
     });
 
-    // Set title attribute (tooltip) on hover dynamically
     document.querySelectorAll(".item-card").forEach(card => {
       const overlay = card.querySelector(".overlay");
       const container = card.querySelector(".img-container");
@@ -271,4 +269,5 @@
   </script>
 </body>
 </html>
+
 
