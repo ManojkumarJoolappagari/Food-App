@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juices</title>
   <style>
     body {
-      background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-cold-cocktail-with-lemon-mint-leaves-outline-drawing_156229-64.jpg");
       margin: 0;
       font-family: sans-serif;
+    }
+
+    .vegbackground {
+      background-image: url("vegsectionbg.jpg");
+    }
+
+    h1 {
+      color: #228B22;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .cart-icon {
@@ -26,14 +35,21 @@
       border-radius: 50%;
       color: black;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: relative;
     }
 
-    h1 {
-      text-align: center;
-    }
-
-    p {
-      font-style: italic;
+    /* Badge */
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      display: none; /* hidden until > 0 */
     }
 
     .menu-container {
@@ -41,11 +57,10 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      padding: 30px;
     }
 
     .item-card {
-      width: 280px;
+      width: 220px;
       background-color: rgba(255, 255, 255, 0.9);
       padding: 15px;
       border-radius: 15px;
@@ -114,18 +129,40 @@
       background-color: rgb(223, 207, 231);
     }
 
+    /* Back button styling */
     .back-button {
       text-align: center;
-      margin: 30px 0;
+      margin: 40px 0;
     }
 
     .back-button a {
+      display: inline-block;
       text-decoration: none;
+      background-color: bisque;
       color: black;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .back-button a:hover {
+      background-color: rgb(223, 207, 231);
+      border-radius: 20px;
     }
   </style>
 </head>
-<body>
+<body class="vegbackground">
+  <div class="cart-icon">
+    <a href="cart.html">🛒
+      <span class="cart-count" id="cart-count">0</span>
+    </a>
+  </div>
+
+
+  <div class="menu-container">
+    <body>
   <div class="cart-icon">
     <a href="cart.html">🛒</a>
   </div>
@@ -193,12 +230,27 @@
       <button class="order-btn" data-item="Mixed Fruit Juice">Order Now</button>
     </div>
   </div>
+  </div>
 
   <div class="back-button">
-    <button><a href="Main Page.html">Back To Menu</a></button>
+    <a href="index.html">⬅ Back To Menu</a>
   </div>
 
   <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let count = cart.reduce((total, item) => total + item.quantity, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (count > 0) {
+        cartCount.style.display = "inline-block";
+        cartCount.textContent = count;
+      } else {
+        cartCount.style.display = "none";
+      }
+    }
+
+    updateCartCount();
+
     document.querySelectorAll(".order-btn").forEach(button => {
       button.addEventListener("click", function () {
         const name = this.getAttribute("data-item");
@@ -223,7 +275,8 @@
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert(name + " added to cart ✅");
+
+        updateCartCount(); 
       });
     });
   </script>
