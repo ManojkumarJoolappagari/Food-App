@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Starters</title>
   <style>
     body {
@@ -10,10 +10,14 @@
       font-family: sans-serif;
     }
 
+    .vegbackground {
+      background-image: url("vegsectionbg.jpg");
+    }
+
     h1 {
+      color: #228B22;
       text-align: center;
-      background-color: rgb(223, 207, 231);
-      padding: 15px;
+      margin-bottom: 30px;
     }
 
     .cart-icon {
@@ -31,27 +35,21 @@
       border-radius: 50%;
       color: black;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: relative;
     }
 
-    .section {
-      padding: 30px 20px;
-    }
-
-    .non-veg {
-      background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20200829/pngtree-colourful-plum-background-for-food-image_397434.jpg");
-    }
-
-    .veg {
-      background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-with-hand-drawn-friuts-berries-pink-background_589573-96.jpg");
-    }
-
-    p {
-      font-style: italic;
-    }
-
-    h3 {
-      text-align: center;
-      margin-bottom: 30px;
+    /* Badge */
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      display: none; /* hidden until > 0 */
     }
 
     .menu-container {
@@ -131,29 +129,42 @@
       background-color: rgb(223, 207, 231);
     }
 
+    /* Back button styling */
     .back-button {
       text-align: center;
-      margin: 30px 0;
+      margin: 40px 0;
     }
 
     .back-button a {
+      display: inline-block;
       text-decoration: none;
+      background-color: bisque;
       color: black;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .back-button a:hover {
+      background-color: rgb(223, 207, 231);
+      border-radius: 20px;
     }
   </style>
 </head>
-<body>
+<body class="vegbackground">
   <div class="cart-icon">
-    <a href="cart.html">🛒</a>
+    <a href="cart.html">🛒
+      <span class="cart-count" id="cart-count">0</span>
+    </a>
   </div>
 
   <h1>Starters</h1>
 
-  <!-- Paste your original content for Non-Veg and Veg starters here as-is -->
-  <!-- For brevity, only one item shown per section below -->
-
-  <div class="section non-veg">
-    <h3><em><ins>Non-Veg Starters</ins></em> 🍗</h3>
+  <div class="menu-container">
+    <div class="section non-veg">
+    <h3 style="text-align: center"><em><ins>Non-Veg Starters</ins></em> 🍗</h3>
     <div class="menu-container">
       <div class="item-card">
         <div class="img-container">
@@ -217,9 +228,9 @@
     </div>
   </div>
 
-
+<div>
   <div class="section veg">
-    <h3><em><ins>Veg Starters</ins></em> 🥦</h3>
+    <h3 style="text-align: center"><em><ins>Veg Starters</ins></em> 🥦</h3>
     <div class="menu-container">
       <div class="item-card">
         <div class="img-container">
@@ -308,16 +319,32 @@
         </div>
         <p>Spicy and crispy South Indian-style paneer starter.</p>
         <b>Rs: 220</b>
-        <button class="order-btn" data-item="Paneer 65">Order Now</button>
+        <button class="order-btn" data-item="paneer starter">Order Now</button>
       </div>
     </div>
   </div>
+</div>
+<div class="back-button">
+  <br>
+    <a href="index.html">⬅ Back To Menu</a>
+</div>
 
-  <div class="back-button">
-    <button><a href="Main Page.html">Back To Menu</a></button>
-  </div>
 
   <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let count = cart.reduce((total, item) => total + item.quantity, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (count > 0) {
+        cartCount.style.display = "inline-block";
+        cartCount.textContent = count;
+      } else {
+        cartCount.style.display = "none";
+      }
+    }
+
+    updateCartCount();
+
     document.querySelectorAll(".order-btn").forEach(button => {
       button.addEventListener("click", function () {
         const name = this.getAttribute("data-item");
@@ -342,7 +369,8 @@
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert(name + " added to cart ✅");
+
+        updateCartCount(); 
       });
     });
   </script>
