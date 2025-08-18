@@ -2,24 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Non-Veg Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veg Section</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
     }
 
-    .nonvegbackground {
-      background-image: url("https://img.freepik.com/premium-vector/fried-chicken-doodle-red-seamless-pattern-background-kitchen-cooking-restaurant_631632-1092.jpg");
-    }
-
-    p {
-      font-style: italic;
+    .vegbackground {
+      background-image: url("vegsectionbg.jpg");
     }
 
     h1 {
-      color: red;
+      color: #228B22;
       text-align: center;
       margin-bottom: 30px;
     }
@@ -39,6 +35,21 @@
       border-radius: 50%;
       color: black;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    /* Badge */
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      display: none; /* hidden until > 0 */
     }
 
     .menu-container {
@@ -118,26 +129,42 @@
       background-color: rgb(223, 207, 231);
     }
 
+    /* Back button styling */
     .back-button {
       text-align: center;
-      margin-top: 30px;
+      margin: 40px 0;
     }
 
     .back-button a {
+      display: inline-block;
       text-decoration: none;
+      background-color: bisque;
       color: black;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .back-button a:hover {
+      background-color: rgb(223, 207, 231);
+      border-radius: 20px;
     }
   </style>
 </head>
-<body class="nonvegbackground">
+<body class="vegbackground">
   <div class="cart-icon">
-    <a href="cart.html">🛒</a>
+    <a href="cart.html">🛒
+      <span class="cart-count" id="cart-count">0</span>
+    </a>
   </div>
 
-  <h1>Non-Veg 🍗</h1>
 
   <div class="menu-container">
-    <!-- Item Cards -->
+    <h1>Non-Veg 🍗</h1>
+
+  <div class="menu-container">
     <div class="item-card">
       <div class="img-container">
         <img src="https://biriyanifactory.com/wp-content/uploads/2022/05/nattu-kozhi-biryani.jpg" alt="Natu Kodi Biryani" />
@@ -180,8 +207,8 @@
 
     <div class="item-card">
       <div class="img-container">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzD8trxJgrVBGyubzHWE2ZQ-jbt5H1cTBGuQ&s" alt="Fish Pulav" />
-        <div class="overlay">Fish Pulav</div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzD8trxJgrVBGyubzHWE2ZQ-jbt5H1cTBGuQ&s" alt="Fish Pulao" />
+        <div class="overlay">Fish Pulao</div>
       </div>
       <p>Flavored rice cooked with tender, marinated fish pieces.</p>
       <b>Rs: 299</b>
@@ -199,11 +226,27 @@
     </div>
   </div>
 
+  </div>
+
   <div class="back-button">
-    <button><a href="Main Page.html">Back To Menu</a></button>
+    <a href="index.html">⬅ Back To Menu</a>
   </div>
 
   <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let count = cart.reduce((total, item) => total + item.quantity, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (count > 0) {
+        cartCount.style.display = "inline-block";
+        cartCount.textContent = count;
+      } else {
+        cartCount.style.display = "none";
+      }
+    }
+
+    updateCartCount();
+
     document.querySelectorAll(".order-btn").forEach(button => {
       button.addEventListener("click", function () {
         const name = this.getAttribute("data-item");
@@ -228,7 +271,8 @@
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert(name + " added to cart ✅");
+
+        updateCartCount();
       });
     });
   </script>
