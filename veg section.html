@@ -13,9 +13,6 @@
     .vegbackground {
       background-image: url("vegsectionbg.jpg");
     }
-    p {
-      font-style: italic;
-    }
 
     h1 {
       color: #228B22;
@@ -38,6 +35,21 @@
       border-radius: 50%;
       color: black;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    /* Badge */
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      display: none; /* hidden until > 0 */
     }
 
     .menu-container {
@@ -77,22 +89,21 @@
     }
 
     .overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 10px 0;
-  font-size: 18px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-.img-container:hover .overlay {
-  opacity: 1;
-}
-
+    .img-container:hover .overlay {
+      opacity: 1;
+    }
 
     .item-card p {
       font-size: 16px;
@@ -118,17 +129,38 @@
       background-color: rgb(223, 207, 231);
     }
 
+    /* Back button styling */
     .back-button {
       text-align: center;
-      margin-top: 30px;
+      margin: 40px 0;
     }
 
     .back-button a {
+      display: inline-block;
       text-decoration: none;
+      background-color: bisque;
       color: black;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .back-button a:hover {
+      background-color: rgb(223, 207, 231);
+      border-radius: 20px;
     }
   </style>
 </head>
+<body class="vegbackground">
+  <div class="cart-icon">
+    <a href="cart.html">🛒
+      <span class="cart-count" id="cart-count">0</span>
+    </a>
+  </div>
+  <div class="menu-container">
+    </head>
 <body class="vegbackground">
   <div class="cart-icon">
     <a href="cart.html">🛒</a>
@@ -227,12 +259,27 @@
       <button class="order-btn" data-item="Pongal">Order Now</button>
     </div>
   </div>
+  </div>
 
   <div class="back-button">
-    <button><a href="index.html">Back To Menu</a></button>
+    <a href="index.html">⬅ Back To Menu</a>
   </div>
 
   <script>
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let count = cart.reduce((total, item) => total + item.quantity, 0);
+      const cartCount = document.getElementById("cart-count");
+      if (count > 0) {
+        cartCount.style.display = "inline-block";
+        cartCount.textContent = count;
+      } else {
+        cartCount.style.display = "none";
+      }
+    }
+
+    updateCartCount();
+
     document.querySelectorAll(".order-btn").forEach(button => {
       button.addEventListener("click", function () {
         const name = this.getAttribute("data-item");
@@ -257,17 +304,10 @@
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert(name + " added to cart ✅");
-      });
-    });
 
-    document.querySelectorAll(".item-card").forEach(card => {
-      const overlay = card.querySelector(".overlay");
-      const container = card.querySelector(".img-container");
-      container.setAttribute("title", overlay.textContent.trim());
+        updateCartCount();
+      });
     });
   </script>
 </body>
 </html>
-
-
